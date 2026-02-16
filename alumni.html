@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="author" content="Association of Engineers, India" />
+  <link rel="icon" type="image/x-icon" href="assets/images/Logo-main.png" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+  <title>The Association of Engineers, India</title>
+  <!-- SheetJS for Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-edu-meeting.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/lightbox.css" />
+  <style>
+    .table-container {
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .pagination {
+      margin-top: 10px;
+      text-align: center;
+      padding: 0 0 10px 10px;
+    }
+    .pagination button {
+      margin: 0 10px;
+      background-color: red;
+      color: #fff;
+      padding: 7px 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8"></div>
+        <div class="right-icons">
+          <ul>
+            <li><a href="tel:(033)23359466"><i class="fa fa-phone"></i> (033) 23359466</a><span style="color: #fff; margin-left: 10px;"> |</span></li>
+            <li><a href="tel:9432371079"><i class="fa fa-phone"></i> 9432371079</a><span style="color: #fff; margin-left: 10px;"> |</span></li>
+            <li><a href="mailto:aeindia.net@gmail.com"><i class="fa fa-envelope"></i> aeindia.net@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Header -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">
+              <img src="assets/images/Logo-main.png" class="nav-logo" />
+              <img src="assets/images/logo-full.png" class="nav-logo two" />
+            </a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="blog.html">Publication</a></li>
+              <li class="has-sub">
+                <a href="javascript:void(0)">Courses</a>
+                <ul class="sub-menu" id="two-menu">
+                  <li><a href="ades.html">ADIS</a></li>
+                  <li><a href="adems.html">ADEMS</a></li>
+                </ul>
+              </li>
+              <li><a href="membership.html">Membership</a></li>
+              <li class="has-sub"><a href="javascript:void(0)" class="active">More</a>
+                <ul class="sub-menu">
+                  <li><a href="events.html">Events</a></li>
+                  <li><a href="alumni.html">Our Alumni</a></li>
+                  <li><a href="notice.html">Notice</a></li>
+                  <li><a href="Downloads.html">Downloads</a></li>
+                  <li><a href="Gallery.html">Gallery</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <a class="menu-trigger"><span>Menu</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Heading -->
+  <section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Our Alumni</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alumni Section -->
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="placement mb-5">
+          <h4>The Association is conducting job specific ADIS course since 2013...</h4>
+        </div>
+
+        <div class="table-container">
+          <table id="excel-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+
+          <div class="pagination">
+            <button onclick="prevPage()">Previous</button>
+            <span id="page-info"></span>
+            <button onclick="nextPage()">Next</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        Copyright © 2025 Association Of Engineers, India.
+        <br />Design: <a href="https://aquafazeindia.netlify.app/" target="_parent">aquafaze india pvt.ltd</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/video.js"></script>
+  <script src="assets/js/slick-slider.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    let currentPage = 1;
+    const rowsPerPage = 25;
+
+    function showPage(page) {
+      const rows = document.querySelectorAll("#excel-table tbody tr");
+      const totalPages = Math.ceil(rows.length / rowsPerPage);
+      if (page < 1) page = 1;
+      if (page > totalPages) page = totalPages;
+      currentPage = page;
+
+      rows.forEach((row, i) => {
+        row.style.display = i >= (page - 1) * rowsPerPage && i < page * rowsPerPage ? "" : "none";
+      });
+
+      document.getElementById("page-info").innerText = `Page ${currentPage} of ${totalPages}`;
+    }
+
+    function nextPage() {
+      showPage(currentPage + 1);
+    }
+
+    function prevPage() {
+      showPage(currentPage - 1);
+    }
+
+async function loadExcelFromAssets() {
+  try {
+    const response = await fetch('alumni.xls'); // adjust path
+    const arrayBuffer = await response.arrayBuffer();
+    const data = new Uint8Array(arrayBuffer);
+    const workbook = XLSX.read(data, { type: 'array' });
+    const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+    const sheetData = XLSX.utils.sheet_to_json(firstSheet, { header: 1 });
+
+    const table = document.getElementById("excel-table");
+    const thead = table.querySelector("thead");
+    const tbody = table.querySelector("tbody");
+    thead.innerHTML = '';
+    tbody.innerHTML = '';
+
+    if (sheetData.length > 0) {
+      const headerRow = document.createElement("tr");
+      sheetData[0].forEach(cell => {
+        const th = document.createElement("th");
+        th.textContent = cell || '';
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+
+      const numColumns = sheetData[0].length;
+
+      for (let i = 1; i < sheetData.length; i++) {
+        const row = document.createElement("tr");
+        for (let j = 0; j < numColumns; j++) {
+          const td = document.createElement("td");
+          td.textContent = sheetData[i][j] || '';
+          row.appendChild(td);
+        }
+        tbody.appendChild(row);
+      }
+
+      showPage(1); // Trigger pagination
+    }
+  } catch (err) {
+    console.error("Error loading Excel file:", err);
+  }
+}
+    
+
+    window.addEventListener("DOMContentLoaded", loadExcelFromAssets);
+  </script>
+</body>
+</html>
